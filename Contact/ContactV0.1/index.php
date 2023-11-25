@@ -9,7 +9,7 @@
         if (check($email) && check($name) && check($subject) && check($comment))
             insert($email, $name, $subject, $comment);
         else
-            echo "<script type=\"text/javascript\">alert(\"Option cannot be blank\");</script>";
+            message("Option cannot be blank");
     }
 
     function check($var)
@@ -19,6 +19,11 @@
             return true;
         else
             return false;
+    }
+
+    function message($text)
+    {
+        echo "<script>alert(\"$text\");</script>";
     }
 
     function insert($dbemail, $dbname, $dbsubject, $dbcomment)
@@ -38,12 +43,12 @@
         $database = new mysqli($servername, $username, $password, $databasename);
 
         if ($database->connect_error)    
-            die("<script type=\"text/javascript\">alert(\"Could not connect to database\");</script>" . $database->conncet_error);
+            die(message("Could not connect to database") . $database->conncet_error);
 
         if($database->query($insert) === true)
-            echo ("<script type=\"text/javascript\">alert(\"Your problem has be sent! We will contact you within 3 working days\");</script>");
+            message("Your problem has be sent! We will contact you within 3 working days");
         else
-            die("<script type=\"text/javascript\">alert(\"Could not execute insertion!\");</script>" . mysqli_error($database));
+            die(message("Could not execute insertion!") . mysqli_error($database));
 
         $database->close();
     }
