@@ -4,6 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script type="text/javascript" src="script.js"></script>
     <?php
+
     function feedback($email, $name, $subject, $comment, $submit)
     {
         if(isset($submit))
@@ -11,7 +12,7 @@
             if (check($email) && check($name) && check($subject) && check($email))
                 insert($email, $name, $subject, $comment);
             else
-                echo "<script>alert(\"Option cannot be blank\");</script>";
+                echo "<script type=\"text/javascript\">alert(\"Option cannot be blank\");</script>";
         }
     }
 
@@ -23,7 +24,6 @@
         else
             return false;
     }
-
 
     function insert($dbemail, $dbname, $dbsubject, $dbcomment)
     {
@@ -42,17 +42,16 @@
         $database = new mysqli($servername, $username, $password, $databasename);
 
         if ($database->connect_error)    
-            die("<script>alert(\"Could not connect to database\");</script>" . $database->conncet_error);
+            die("<script type=\"text/javascript\">alert(\"Could not connect to database\");</script>" . $database->conncet_error);
 
         if($database->query($insert) === true)
-            echo ("<script>alert(\"Your problem has be sent! We will contact you within 3 working days\");</script>");
+            echo ("<script type=\"text/javascript\">alert(\"Your problem has be sent! We will contact you within 3 working days\");</script>");
         else
-            die("<script>alert(\"Could not execute insertion!\");</script>" . mysqli_error($database));
+            die("<script type=\"text/javascript\">alert(\"Could not execute insertion!\");</script>" . mysqli_error($database));
 
         $database->close();
     }
 
-    
     ?>
 </head>
 <body>
@@ -110,7 +109,7 @@
 
                         <div class="form-floating mb-4 mt-5">
                             <label for="comment" class="form-label">Please describe your problem...</label>
-                            <textarea name="comment" id="comment" class="form-control" style="height:140px"></textarea>
+                            <textarea class="form-control" name="comment" id="comment" style="height:140px"></textarea>
                         </div>
 
                         <div class="mb-4 text-center">                   
