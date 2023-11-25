@@ -115,6 +115,7 @@
     if(isset($_POST["submit"]))           
         feedback($_POST["email"], $_POST["name"], $_POST["subject"], $_POST["comment"], $_POST["submit"]);
 
-    ?>   
+    ?>
+</section>
 </body>
 </html>
