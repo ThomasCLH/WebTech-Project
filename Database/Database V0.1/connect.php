@@ -7,24 +7,27 @@
 
 function insert($dbname, $dbcount)
 {
-    $server = "localhost";
+    $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "web_tech";
+    $databasename = "web_tech";
+    $tablename = "product_data";
+    $field1 = "product";
+    $field2 = "quantity";
 
-    $insert = "insert into product_data (product, quantity) values ('$dbname', '$dbcount')";
+    $insert = "insert into $table ($field1, $field2) values ('$dbname', '$dbcount')";
 
-    $sql = new mysqli($server, $username, $password, $database);
+    $database = new mysqli($servername, $username, $password, $databasename);
 
-    if ($sql->connect_error)    
-        die("Could not connect to database" . $sql->conncet_error);
+    if ($database->connect_error)    
+        die("Could not connect to database" . $database->conncet_error);
 
-    if($sql->query($insert) === true)
+    if($database->query($insert) === true)
         print("Record inserted successfully!<br/>");
     else
         die("Could not execute insertion!" . mysqli_error($database));
 
-    $sql->close();
+    $database->close();
 }
 
 function data($name, $count)
