@@ -31,12 +31,12 @@ function insert($dbname, $dbcount)
     $database = new mysqli($servername, $username, $password, $databasename);
 
     if ($database->connect_error)    
-        die("Could not connect to database" . $sql->conncet_error);
+        die("Could not connect to database<br/>" . $sql->conncet_error);
 
     if($database->query($insert) === true)
         result();
     else
-        die("Could not execute insertion!" . mysqli_error($database));
+        die("Could not execute insertion!<br/>" . mysqli_error($database));
 
     $database->close();
 }
@@ -44,14 +44,15 @@ function insert($dbname, $dbcount)
 function result()
 {    
     print("Record inserted successfully!<br/>");
-    echo("Thank you!<br/>");
-    echo "<a href=\"index.html\">Previous Page</a>"; 
+    echo("Thank you!<br/>"); 
 }
 
 $product = $_POST["product"];
 $quantity = $_POST["quantity"];
 
 data($product, $quantity);
+
+echo "<a href=\"index.html\">Previous Page</a>";
 
 ?>
 </body>
