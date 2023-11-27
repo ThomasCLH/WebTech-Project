@@ -61,7 +61,7 @@ function insert($dbname, $dbcount)
 
 function result($success)
 {
-    if $success
+    if ($success)
     {
         print("Record inserted successfully!<br/>");
         echo("Thank you!<br/>");
@@ -73,9 +73,9 @@ function result($success)
 $cart = [];
 $check = true;
 
-addcart($_POST["productA"], $_POST["quantityA"]);
-addcart($_POST["productB"], $_POST["quantityB"]);
-addcart($_POST["productC"], $_POST["quantityC"]);
+addcart("A", $_POST["quantityA"]);
+addcart("B", $_POST["quantityB"]);
+addcart("C", $_POST["quantityC"]);
 
 if ($check)
     data($cart);
