@@ -1,0 +1,46 @@
+.btn-primary {
+    color: white;
+    background-color: #56CCF2;
+    border: none;
+    font-weight: bold;
+}
+      
+.btn-remove {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    font-weight: bold;
+}
+
+.product .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product .col-md-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-product {
+    width: 50%;
+}
+
+.cart-price {
+    width: 25%;
+   
+}
+
+.cart-quantity {
+    width: 25%;
+}
+
+.product-image {
+    width: 300px;
+    height: 200px;
+}

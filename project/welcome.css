@@ -1,0 +1,15 @@
+section{
+    padding:60px 0;
+}
+
+.space { 
+    margin:0;
+    padding:0; 
+    height:50px;
+}
+
+.span {
+    margin:0;
+    padding:0;
+    height:20px;
+}
